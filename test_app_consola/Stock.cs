@@ -48,11 +48,11 @@ namespace test_app_consola
             Stock alimento_humedo_perro = new Stock();
             Stock alimento_cachorro_perro = new Stock();
 
-            Stock alimento_gato = new Stock();
+            /*Stock alimento_gato = new Stock();
             Stock premio_gato = new Stock();
             Stock alimento_medicado_gato = new Stock();
             Stock alimento_humedo_gato = new Stock();
-            Stock alimento_gatito_gato = new Stock();
+            Stock alimento_gatito_gato = new Stock();*/
 
 
             alimento_perro.setID(1);

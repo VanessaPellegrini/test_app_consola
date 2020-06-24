@@ -13,10 +13,14 @@ namespace test_app_consola
             List<Stock> ListaStock = new List<Stock>();
             Stock alimento = new Stock();
             ListaStock = alimento.listarStock();
-            menu(ListaStock);
+            List<Pedidos> ListaPedidos = new List<Pedidos>();
+            Pedidos _pedido = new Pedidos();
+            ListaPedidos = _pedido.listarPedidos();
+            menu(ListaStock, ListaPedidos);
+
         }
 
-        static void menu(List<Stock> ListaStock)
+        static void menu(List<Stock> ListaStock, List<Pedidos> ListaPedidos)
         {
             for (; ; )
             {
@@ -27,6 +31,7 @@ namespace test_app_consola
                 Console.Write("2... Ingresa un nuevo stock\n");
                 Console.Write("3... Modifica tu stock\n");
                 Console.Write("4... Elimina el stock antiguo\n\n");
+                Console.Write("5... Revisa tu lista de pedidos\n\n");
                 Console.Write("0... Salir \n\n");
                 Console.Write("Ingresa una opcion : ");
                 ConsoleKeyInfo opcion = Console.ReadKey();
@@ -48,6 +53,10 @@ namespace test_app_consola
                         ListarStock(ListaStock);
                         EliminarStock(ListaStock);
                         break;
+                    case '5':
+                        ListarPedidos(ListaPedidos);
+                        Console.ReadKey();
+                        break;
                     default:
                         break;
                 }
@@ -64,6 +73,24 @@ namespace test_app_consola
                 Console.WriteLine("\n CANTIDAD EN STOCK : {0}", alimento.s_cantidad);
                 Console.WriteLine("\n NOMBRE DEL PRODUCTO : {0}", alimento.s_n_producto);
                 Console.WriteLine("\n DESCRIPCION : {0}", alimento.s_descripcion);
+                Console.WriteLine("\n ************** ------- **************");
+            }
+
+            //Console.WriteLine("\n Presione Enter para volver al menu ...");
+            //Console.ReadKey();
+        }
+
+        public static void ListarPedidos(List<Pedidos> ListaPedidos)
+        {
+            foreach (var cliente in ListaPedidos)
+            {
+                Console.WriteLine("\n");
+                Console.WriteLine("\n CODIGO : {0}", cliente.ID);
+                Console.WriteLine("\n PRECIO TOTAL: {0}", cliente.precioTotal);
+                Console.WriteLine("\n NOMBRE DEL PEDIDO : {0}", cliente.nombrePedido);
+                Console.WriteLine("\n ESTADO DEL PEDIDO: {0}", cliente.estadoDelPedido);
+                Console.WriteLine("\n NOMBRE DEL CLIENTE : {0}", cliente.nombreCliente);
+                Console.WriteLine("\n FECHA DE COMPRA : {0}", cliente.fecha);
                 Console.WriteLine("\n ************** ------- **************");
             }
 
